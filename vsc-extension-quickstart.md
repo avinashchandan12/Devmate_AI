@@ -1,41 +1,60 @@
-# Welcome to your VS Code Extension
+# DevMate AI - Extension Quickstart
 
-## What's in the folder
+Welcome to **DevMate AI**! This quickstart guide will help you set up and start using the extension in just a few steps.
 
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file in which you declare your extension and command.
-  * The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
-* `extension.js` - this is the main file where you will provide the implementation of your command.
-  * The file exports one function, `activate`, which is called the very first time your extension is activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
-  * We pass the function containing the implementation of the command as the second parameter to `registerCommand`.
+## Getting Started
 
-## Get up and running straight away
+### 1. Install the Extension
 
-* Press `F5` to open a new window with your extension loaded.
-* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
-* Set breakpoints in your code inside `extension.js` to debug your extension.
-* Find output from your extension in the debug console.
+- Open Visual Studio Code.
+- Navigate to the **Extensions View** by clicking on the Extensions icon in the Activity Bar on the left side.
+- Search for `DevMate AI` in the Extensions Marketplace.
+- Click **Install**.
 
-## Make changes
+Alternatively, you can install the extension manually:
 
-* You can relaunch the extension from the debug toolbar after changing code in `extension.js`.
-* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+1. Download the latest `.vsix` file from the [GitHub Releases](https://github.com/avinash-sankeysolutions/Devmate_AI/releases) page.
+2. In Visual Studio Code, go to **Extensions** > **Install from VSIX...** and select the downloaded file.
 
-## Explore the API
+### 2. Set Up Your Local Environment (Optional)
 
-* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+DevMate AI can also be run locally using **Ollama** with custom models. If you want to run the extension on your local machine:
 
-## Run tests
+1. **Download Ollama** from [Ollama's official site](https://ollama.com).
+2. Choose your favorite model in Ollama.
+3. Clone this repo and download the server file.
+4. Make sure **Node.js** is installed on your machine.
+5. Run the server locally using the provided files in the repository.
 
-* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
-* Open the Testing view from the activity bar and click the Run Test" button, or use the hotkey `Ctrl/Cmd + ; A`
-* See the output of the test result in the Test Results view.
-* Make changes to `test/extension.test.js` or create new test files inside the `test` folder.
-  * The provided test runner will only consider files matching the name pattern `**.test.js`.
-  * You can create folders inside the `test` folder to structure your tests any way you want.
+### 3. Analyze Your Code
 
-## Go further
+Once installed:
 
- * [Follow UX guidelines](https://code.visualstudio.com/api/ux-guidelines/overview) to create extensions that seamlessly integrate with VS Code's native interface and patterns.
- * [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
- * Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+1. Open a JavaScript (`.js`), TypeScript (`.ts`), or JSX (`.jsx`) file.
+2. Select a function in your code.
+3. You will see two options:
+   - **Analyze Complexity**: Calculates and shows the time and space complexity of the selected function.
+   - **Optimize with AI**: Provides AI-driven code optimization suggestions based on your code.
+
+### 4. View Results
+
+The complexity analysis and optimization suggestions will be displayed directly in the editor, under the "API Response" section on the left panel.
+
+## Debugging the Extension
+
+If you want to debug or modify this extension:
+
+1. Clone the repository from [GitHub](https://github.com/avinash-sankeysolutions/Devmate_AI).
+2. Open the repository in Visual Studio Code.
+3. Press `F5` to start debugging. This will launch an instance of VS Code with your extension loaded.
+4. You can make changes and reload the extension to see the updates live.
+
+## Key Features
+
+- **Time and Space Complexity Analysis**: Check the complexity of each function in your JavaScript, TypeScript, or JSX files.
+- **AI-Driven Code Optimization**: Get AI-based suggestions for improving your code performance.
+- **Ollama Support**: Run the extension locally with your own model using Ollama and Node.js.
+
+## What's Next?
+
+For more information and advanced usage, check out the [full documentation](https://github.com/avinash-sankeysolutions/Devmate_AI). You can also contribute or submit issues on GitHub.
