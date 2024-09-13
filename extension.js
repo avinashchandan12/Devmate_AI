@@ -43,13 +43,6 @@ function activate(context) {
         vscode.workspace.onDidOpenTextDocument(handleTextDocumentOpen)
     );
 
-    // Display welcome message on activation
-    // if (!gotApiResponse) {
-    //     displayWelcomeMessage();
-    // }
-    // displayWelcomeMessage();
-
-    // Initialize on activation
     if (vscode.window.activeTextEditor) {
         handleTextDocumentOpen(vscode.window.activeTextEditor.document);
     }
@@ -71,18 +64,23 @@ function displayNotSupportedMessage() {
 }
 
 async function analyzeComplexity(functionCode) {
+    await showDevMateView();
     await makeApiCall("Calculate time and space complexity for this code, just give me answer in one line saying: The Time and Space Complexity of your code is: {result} \n\n", functionCode);
 }
 
 async function optimizeCode(functionCode) {
+    await showDevMateView();
     await makeApiCall("Optimize the below code and return the optimized code with explanations: \n\n", functionCode);
+}
+
+async function showDevMateView() {
+    await vscode.commands.executeCommand('optimizationwithai.apiResponseView.focus');
 }
 
 async function makeApiCall(prompt, functionCode) {
     try {
         apiResponseProvider.updateContent("Processing request...\n\n");
         
-
         const promptData = prompt + functionCode;
         const response = await axios.post('https://d0df-114-143-107-6.ngrok-free.app/generate', {
             prompt: promptData

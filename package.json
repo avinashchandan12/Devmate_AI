@@ -2,7 +2,9 @@
   "name": "devmateai",
   "displayName": "DevMate AI",
   "description": "This extension helps you to optimize your code with AI and suggest you the best possible code, while calculating the time and space complexity with secure local LLM",
-  "version": "0.0.1",
+  "version": "1.0.1",
+  "publisher": "TeamSankey",
+  "icon": "assets/logo.png",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -15,12 +17,21 @@
   ],
   "main": "./extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "devmate-ai",
+          "title": "DevMate AI",
+          "icon": "$(code)"
+        }
+      ]
+    },
     "views": {
-      "explorer": [
+      "devmate-ai": [
         {
           "type": "webview",
           "id": "optimizationwithai.apiResponseView",
-          "name": "DEVMATE AI"
+          "name": "DevMate AI"
         }
       ]
     },

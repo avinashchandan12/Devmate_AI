@@ -1,7 +1,7 @@
 # DevMate AI - Code Complexity & Optimization for JavaScript, TypeScript, and JSX with AI
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-repo-link)
-[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code%20Marketplace-Install%20Now-green)](https://marketplace.visualstudio.com/items?itemName=devmate_ai)
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code%20Marketplace-Install%20Now-green)](https://marketplace.visualstudio.com/items?itemName=TeamSankey.devmateai)
 
 ## Overview
 
