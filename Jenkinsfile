@@ -13,8 +13,7 @@ pipeline {
                         def timestamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
                         def backupBranch = "backup_${branch}_${timestamp}" // More concise string interpolation
                         input {
-                            message "Ready to deploy?", ok:"Yes"
-                            parameters {
+                            parameters: {
                                 string(name: "av", defaultValue: "Master")
                             }
                         }
