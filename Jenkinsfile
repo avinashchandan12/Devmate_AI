@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     echo 'Cloning main branch'
-                    def branch = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
+                    def branch = 'main'
                     echo "Branch>>>>>>>>>>>.: ${branch}"
 
                     if (branch == 'main' || branch == 'master') {
