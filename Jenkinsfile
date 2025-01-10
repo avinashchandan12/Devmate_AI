@@ -24,6 +24,10 @@ pipeline {
                             sh "git checkout ${branch}"
                             echo "Restored branch to ${branch}"
                         }
+                        def environment = input message: 'Select environment to deploy to:', parameters: [
+                            choice(name: 'ENV', choices: ['dev', 'qa', 'staging'], description: 'Environment')
+                        ]
+                        echo "Deploying to ${environment}"
                     } else {
                         echo "Not main/master branch, Skipping backup."
                     }
