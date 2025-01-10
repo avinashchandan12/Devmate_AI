@@ -3,10 +3,8 @@ pipeline {
     stages {
         stage('Branch Cloning...') {
             steps {
-                echo 'Branch Cloning...'
-                def branch = 'main'
-                if (branch == 'main') {
                     echo 'Cloning main branch'
+                    branch = 'main'
                     def time_stamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
                     def backup_branch = 'backup_' + time_stamp
 
@@ -40,4 +38,4 @@ pipeline {
             }
         }
     }
-}
+
