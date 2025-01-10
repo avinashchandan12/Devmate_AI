@@ -21,10 +21,6 @@ pipeline {
                         sh "git checkout ${branch}"
                     }
                 }
-                else{
-                    echo 'No branch found, Skipping Checkout'
-                }
-
             }
         }
         stage('Test') {
