@@ -24,9 +24,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out the code from Git (this is usually handled automatically by Jenkins)
-                // However, if you need more control, you can use the 'checkout' step explicitly
-                checkout scm // Use the configured SCM in the Jenkins job
+                checkout scm
             }
         }
         stage('Build') {
