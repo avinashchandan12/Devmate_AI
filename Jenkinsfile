@@ -3,22 +3,27 @@ pipeline {
     stages {
         stage('Branch Cloning...') {
             steps {
+                script {
                     echo 'Cloning main branch'
-                    branch = 'main'
-                    def time_stamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
-                    def backup_branch = 'backup_' + time_stamp
+                    def branch = env.BRANCH_NAME
 
-                    try{
-                        sh "git checkout -b ${backup_branch}"
-                        sh "git push origin ${backup_branch}"
-                        echo "Main branch backed up to: ${backup_branch}"
-                    } catch (err) {
-                        echo "Error: ${err}"
-                        currentBuild.result = 'Unstable'
-                    }
-                    finally{
-                        echo 'Restoring main branch'
-                        sh "git checkout ${branch}"
+                    if (branch == 'main' || branch == 'master') {
+                        def timestamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
+                        def backupBranch = "backup_${branch}_${timestamp}" // More concise string interpolation
+
+                        try {
+                            sh "git checkout -b ${backupBranch}"
+                            sh "git push origin ${backupBranch}"
+                            echo "Main branch backed up to: ${backupBranch}"
+                        } catch (err) {
+                            echo "Error creating backup: ${err.message}"
+                            currentBuild.result = 'UNSTABLE'
+                        } finally {
+                            sh "git checkout ${branch}"
+                            echo "Restored branch to ${branch}"
+                        }
+                    } else {
+                        echo "Not main/master branch, Skipping backup."
                     }
                 }
             }
@@ -34,4 +39,4 @@ pipeline {
             }
         }
     }
-
+}
