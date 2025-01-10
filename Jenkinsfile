@@ -12,7 +12,12 @@ pipeline {
                         input message: "Do you want to backup the main branch?", ok: 'Yes'
                         def timestamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
                         def backupBranch = "backup_${branch}_${timestamp}" // More concise string interpolation
-
+                        input {
+                            message "Ready to deploy?", ok:"Yes"
+                            parameters {
+                                string(name: "av", defaultValue: "Master")
+                            }
+                        }
                         try {
                             sh "git checkout -b ${backupBranch}"
                             sh "git push origin ${backupBranch}"
