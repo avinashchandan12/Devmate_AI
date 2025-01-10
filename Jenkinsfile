@@ -5,8 +5,8 @@ pipeline {
             steps {
                 script {
                     echo 'Cloning main branch'
-                    def branch = env.BRANCH_NAME
-                    echo "Branch: ${branch}"
+                    def branch = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
+                    echo "Branch>>>>>>>>>>>.: ${branch}"
 
                     if (branch == 'main' || branch == 'master') {
                         def timestamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
