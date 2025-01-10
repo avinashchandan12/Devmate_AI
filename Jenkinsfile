@@ -9,7 +9,7 @@ pipeline {
                     echo "Branch>>>>>>>>>>>.: ${branch}"
 
                     if (branch == 'main' || branch == 'master') {
-                        input{"Do you want to backup the main branch?"}
+                        input message: "Do you want to backup the main branch?", ok: 'Yes'
                         def timestamp = new Date().format('yyyy-MM-dd_HH-mm-ss')
                         def backupBranch = "backup_${branch}_${timestamp}" // More concise string interpolation
 
